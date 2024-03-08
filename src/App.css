@@ -36,3 +36,71 @@
     transform: rotate(360deg);
   }
 }
+
+.heading{
+  margin: 15px 15px 10px 15px;
+  text-align: center;
+}
+
+.movie-list{
+  display: flex;
+  margin: 15px;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #505050;
+}
+
+.movie-card{
+  width: 200px;
+  /* height: 300px; */
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: #909090;
+}
+
+.movie-card img{
+  max-width: 100%;
+}
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  padding: 20px;
+}
+
+.page-button{
+  padding: 5px;
+  align-items: center;
+  display: flex;
+  border: 1px solid black;
+  justify-content: center;
+  background-color: #ccc;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  font-size: small;
+}
+
+.page-button.active{
+  background-color: blue;
+  color: white;
+}
+
+.addToWatchList{
+  background-color: #282c34;
+  color: azure;
+}
+
+/* .container{
+  background-color: linear-gradient(to bottom, #33ccff 0%, #003366 100%);
+} */
+
+.add-movie-form{
+  padding: 70px;
+}
+
+.add-movie-form div{
+  margin-bottom: 10px;
+}
