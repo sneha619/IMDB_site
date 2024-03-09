@@ -6,7 +6,10 @@ import Pagination from "./Pagination";
 const MovieList = () => {
 
     const [movies,setMovies] = useState([]);
-    const [watchList, updateWatchlist] = useState([]);
+    const [watchList, updateWatchlist] = useState(() => {
+        const favouritesData = localStorage.getItem("favourites") || "[]";
+        return (JSON.parse(favouritesData));
+    });
 
     const fetchMovies = (pageNo) =>{
         fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=9f48a5b363c49e0c31bf3d09bb319827&page=${pageNo}`)

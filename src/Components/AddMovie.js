@@ -36,26 +36,26 @@ const AddMovie = () => {
 
     console.log("Rerendered")
 
-    const handleSubmit = () => {
-        console.log(nameRef.current.value);
-        console.log(ratingRef.current.value);
+    // const handleSubmit = () => {
+    //     console.log(nameRef.current.value);
+    //     console.log(ratingRef.current.value);
 
-        if(nameRef.current.value.length < 3){
-            nameRef.current.style.border = "1px solid red";
-            validationRef.current.innerText = "Please enter min 3 char";
-        }
-    }
+    //     if(nameRef.current.value.length < 3){
+    //         nameRef.current.style.border = "1px solid red";
+    //         validationRef.current.innerText = "Please enter min 3 char";
+    //     }
+    // }
     return(
         <div className="add-movie-form">
             <h1>Add Movie</h1>
             <div>
-                <input ref= {nameRef} placeholder="Add new movie name"/>
+                <input placeholder="Add new movie name"/>
             </div>
             <div>
-                <input ref= {ratingRef} type="number" placeholder="Enter Movie Rating"/>
+                <input type="number" placeholder="Enter Movie Rating"/>
             </div>
-            <button onClick={handleSubmit}>Add</button>
-            <div> ref = {validationRef} </div>
+            <button>Add</button>
+            {/* <div> ref = {validationRef} </div> */}
         </div>
     )
 }
