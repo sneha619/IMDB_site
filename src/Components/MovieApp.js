@@ -10,6 +10,7 @@ import {
     RouterProvider,
     Routes,
   } from "react-router-dom";
+import MovieFavourites from "./MovieFavourites";
 
   // const router = createBrowserRouter([
   //   {
@@ -48,6 +49,7 @@ const MovieApp = () => {
           <Routes>
             <Route path="/" element={<MovieList />} />
             <Route path="/movie-detail/:movieId" element={<MovieDetail />} />
+            <Route path="/favourites" element={<MovieFavourites />} />
             <Route path="/add-movie" element={<AddMovie />} />
           </Routes>
         </BrowserRouter>
