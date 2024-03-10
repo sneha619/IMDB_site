@@ -115,6 +115,15 @@
 }
 
 .favourite-wrapper .right-section{
-  background-color: #282c34;
+  /* background-color: #ccc; */
   flex-grow: 1;
+}
+
+.favourite-wrapper .right-section .table .th{
+  border-collapse: collapse;
+}
+
+.favourite-wrapper .right-section table th, .favourite-wrapper .right-section table td{
+  border: 1px solid #ccc;
+  padding: 10px;
 }
