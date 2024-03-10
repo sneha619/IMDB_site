@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-// git push -u origin main
 const MovieCard = ({ movie, onWatchlistUpdate, watchlist }) => {
 
     const isMovieAdded = watchlist.find(watchlistMovie => watchlistMovie.id == movie.id);
