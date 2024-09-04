@@ -1,8 +1,8 @@
 import Heading from "./Heading";
-import MovieList from "./MovieList";
-import AddMovie from "./AddMovie";
+import Home from "./Home";
 import MovieDetail from "./MovieDetail";
 import Header from "../Header";
+import MovieFavourites from "./MovieFavourites";
 import {
   BrowserRouter,
     createBrowserRouter,
@@ -10,7 +10,6 @@ import {
     RouterProvider,
     Routes,
   } from "react-router-dom";
-import MovieFavourites from "./MovieFavourites";
 
   // const router = createBrowserRouter([
   //   {
@@ -47,10 +46,9 @@ const MovieApp = () => {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path="/" element={<MovieList />} />
+            <Route path="/" element={<Home />} />
             <Route path="/movie-detail/:movieId" element={<MovieDetail />} />
             <Route path="/favourites" element={<MovieFavourites />} />
-            <Route path="/add-movie" element={<AddMovie />} />
           </Routes>
         </BrowserRouter>
     );

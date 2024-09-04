@@ -13,11 +13,13 @@ const MovieDetail = () => {
     },[]);
     return(
         <>
-            <h1>Movie Detail</h1>
-            <hr />
-            <h2>{movieDetail.title}</h2>
-            <img src= {`https://image.tmdb.org/t/p/w500${movieDetail.backdrop_path}`} />
-            <h5>{movieDetail.overview}</h5>
+            <div className="movie-detail-page">
+                <h1>Movie Detail</h1>
+                <hr />
+                <h2>{movieDetail.title}</h2>
+                <img src= {`https://image.tmdb.org/t/p/w500${movieDetail.backdrop_path}`} />     
+                <h4>{movieDetail.overview}</h4>
+            </div>
         </>
     );
 }
