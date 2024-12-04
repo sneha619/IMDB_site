@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react"
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faArrowDown19 } from "@fortawesome/free-solid-svg-icons"; // Import the specific icon
+
 
 let genreids = {
     28: "Action",
@@ -30,7 +33,7 @@ const MovieFavourites = () => {
 
     useEffect (() => {
         const favouritesData = JSON.parse(localStorage.getItem("favourites") || "[]");
-        const genresData = favouritesData.map(data => data.genre_ids[0]);
+        const genresData = favouritesData.map((data) => data.genre_ids[0]);
         setGenres(Array.from(new Set(genresData)));
         setFavourites(favouritesData);
         setFilteredFavourites(favouritesData);
@@ -43,9 +46,32 @@ const MovieFavourites = () => {
 
     useEffect(() => {
         setFilteredFavourites(() => {
-            return favourites.filter(movie => movie.genre_ids[0] == setSelectedGenreId);
+            // eslint-disable-next-line eqeqeq
+            return favourites.filter(movie => !selectedGenreId || movie.genre_ids[0] == selectedGenreId);
         })
-    },[setSelectedGenreId,favourites]);
+    },[selectedGenreId,favourites]);
+
+    const handleMovieSearch = (e) => {
+        const text = e.target.value;
+        setFilteredFavourites(() => {
+            return favourites.filter(movie => movie.title.toLowerCase().includes(text.toLowerCase()));
+        })
+    }
+
+    const handleAccendingSorting = () => {
+        setFilteredFavourites(() => {
+            return favourites.sort((a,b) =>{
+                return a.popularity - b.popularity;
+            });
+        })
+    }
+
+    const handleDelete = (id) => {
+        const updatedFavourites = favourites.filter(movie => movie.id !== id);
+        setFavourites(updatedFavourites);
+        setFilteredFavourites(updatedFavourites);
+        localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
+    };
 
     return(
         <div>
@@ -59,9 +85,9 @@ const MovieFavourites = () => {
                         >
                             All Genre</div>
                         {
-                            genres.map(genreID =>(
+                            genres.map((genreID) =>(
                                 <div className={`genre 
-                                ${selectedGenreId == genreID ? "selected" : ""}`}
+                                ${selectedGenreId === genreID ? "selected" : ""}`}
                                     onClick={handleGenreSelection}
                                     data-id={genreID}
                                 >
@@ -72,13 +98,17 @@ const MovieFavourites = () => {
                     </div>
                 </div>
                 <div className="right-section">
+                    <input type="text" onChange={handleMovieSearch} placeholder="Search your favourite movie"></input>
                     <table>
                         <thead>
                             <tr>
                                 <th>Image</th>
                                 <th>Title</th>
                                 <th>Genre</th>
-                                <th>Popularity</th>
+                                <th>Popularity <span 
+                                onClick={handleAccendingSorting}>
+                                  A  </span>
+                                </th>
                                 <th>Rating</th>
                                 <th>Actions</th>
                             </tr>
@@ -86,13 +116,23 @@ const MovieFavourites = () => {
                         <tbody>
                             {
                                 filteredFavourites.map((favourite) => (
-                                    <tr>
-                                        <td><img src={`https://image.tmdb.org/t/p/w500${favourite.poster_path}` } width={"90px"} /></td>
+                                    <tr key={favourite.id}>
+                                        <td>
+                                            <img 
+                                            src={`https://image.tmdb.org/t/p/w500${favourite.poster_path}` } 
+                                            alt={favourite.title}
+                                            style= {{ width:"90px" }} 
+                                        />
+                                        </td>
                                         <td>{favourite.title}</td>
                                         <td>{genreids[favourite.genre_ids[0]]}</td>
                                         <td>{favourite.popularity}</td>
                                         <td>{favourite.vote_average}</td>
-                                        <td><button>Delete</button></td>
+                                        <td>
+                                        <button onClick={() => handleDelete(favourite.id)}>
+                                            Delete
+                                        </button>
+                                        </td>
                                     </tr>
                                 ))
                             }

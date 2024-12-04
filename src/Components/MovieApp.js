@@ -11,36 +11,6 @@ import {
     Routes,
   } from "react-router-dom";
 
-  // const router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: (
-  //       <>
-  //           <Header />
-  //           <MovieList />
-  //       </>
-  //     )
-  //   },
-  //   {
-  //       path: "/movie-detail/:movieId",
-  //       element: (
-  //         <>
-  //               <Header />
-  //             <MovieDetail />
-  //         </>
-  //       )
-  //     },
-  //     {
-  //       path: "/add-movie",
-  //       element: (
-  //         <>
-  //               <Header />
-  //               <AddMovie />
-  //         </>
-  //       )
-  //     },
-  // ]);
-
 const MovieApp = () => {
     return(
         <BrowserRouter>
