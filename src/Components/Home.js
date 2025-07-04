@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import Heading from "./Heading";
 import Pagination from "./Pagination";
@@ -28,7 +28,7 @@ const Home = () => {
             .catch((err) => console.error("Failed to fetch top-rated movies:", err));
     };
 
-    const popularMovieCount = useMemo(() => movies.filter((movie) => movie.popularity > 1000).length, [movies]);
+    // const popularMovieCount = useMemo(() => movies.filter((movie) => movie.popularity > 1000).length, [movies]);
 
     const onSearch = (e) => {
         const searchQuery = e.target.value;

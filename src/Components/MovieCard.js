@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom"; // Importing Link for navigation
 
 const MovieCard = ({ movie, onWatchlistUpdate, watchlist }) => {

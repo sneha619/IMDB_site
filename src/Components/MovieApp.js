@@ -1,13 +1,10 @@
-import Heading from "./Heading";
 import Home from "./Home";
 import MovieDetail from "./MovieDetail";
 import Header from "../Header";
 import MovieFavourites from "./MovieFavourites";
 import {
   BrowserRouter,
-    createBrowserRouter,
     Route,
-    RouterProvider,
     Routes,
   } from "react-router-dom";
 

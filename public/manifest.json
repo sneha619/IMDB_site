@@ -1,25 +1,11 @@
 {
-  "short_name": "IMDB-Rating",
-  "name": "IMDB-Rating Web App",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
-      "src": "https://static-00.iconduck.com/assets.00/imdb-icon-256x256-r6buuvup.png",
-      "sizes": "256x256",
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }

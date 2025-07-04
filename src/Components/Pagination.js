@@ -46,7 +46,7 @@ const Pagination = ({onPagechange}) => {
             <button className="page-button"  disabled = {activePage=== 1}data-id={"PREVIOUS"} onClick={changePage}>Prev</button>
             {
                 pages.map((page) => (
-                    <button className={`page-button ${activePage == page ? 'active' : ''}`} data-id={page} onClick={changePage}>{page}</button>
+                    <button className={`page-button ${activePage === page ? 'active' : ''}`} data-id={page} onClick={changePage}>{page}</button>
                 ))
             }
             <button className="page-button" disabled = {activePage===totalPages} data-id={"NEXT"} onClick={changePage}>Next</button>
